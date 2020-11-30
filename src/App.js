@@ -21,7 +21,8 @@ componentDidMount(){
   render() {
    return (
     <div className="App">
-      
+      <CardList monsters = {this.state.monsters}/>             
+            
     </div>
    );
  }
