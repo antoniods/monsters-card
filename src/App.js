@@ -8,7 +8,8 @@ class App extends Component {
   super();
 
     this.state = {
-      monsters : []
+      monsters : [],
+      searchField : ''
     };
 }
 
@@ -18,11 +19,26 @@ componentDidMount(){
   .then(users => this.setState({monsters:users}));
   }
 
- 
-  render() {
-   return (
+   render() {
+  
+    
+    // const monster = this.state.monsters;
+    // const searchField = this.state.searchField; al posto di scrivere cosi semplifico ....
+    const {monsters, searchField } = this.state;
+    const filteredMonsters = monsters.filter (monsters => 
+      monsters.name.toLowerCase().includes(searchField.toLowerCase()) //toLowerCase per il render e per stare sicuri nel caso si scriva con in maiuscolo
+      )
+
+  
+    return (
     <div className="App">
-      <CardList monsters={this.state.monsters}/>               
+      <input 
+        type='search' 
+        placeholder='Ricerca il mostro' 
+        onChange={e => this.setState({searchField:e.target.value})}
+          // problema async risolto passando come secondo valore lo state "", () => console.log(this.state)"   
+      />
+      <CardList monsters={filteredMonsters}/>               
     </div>
    );
  }
