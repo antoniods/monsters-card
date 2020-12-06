@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import { CardList } from './components/card-list/card-list.component.jsx';
+import { CardList } from './components/card-list/card-list.component';
+import { SearchBox } from './components/search-box/search-box.component';
+import './App.css';
 
 
 
@@ -32,12 +34,11 @@ componentDidMount(){
   
     return (
     <div className="App">
-      <input 
-        type='search' 
+      <h1>I mostri di React</h1>
+      <SearchBox
         placeholder='Ricerca il mostro' 
-        onChange={e => this.setState({searchField:e.target.value})}
-          // problema async risolto passando come secondo valore lo state "", () => console.log(this.state)"   
-      />
+        handleChange={e => this.setState({ searchField: e.target.value} )}
+        />
       <CardList monsters={filteredMonsters}/>               
     </div>
    );
