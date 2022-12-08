@@ -1,5 +1,7 @@
-# Monsters Card : ... for getting Started with Create React Apps
+# Monsters Card :
 
-Demo [Here](https://antoniods.github.io/monsters-card/)
+# Demo [Here](https://antoniods.github.io/monsters-card/)
+
+
 
 
